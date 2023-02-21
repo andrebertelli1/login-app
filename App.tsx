@@ -10,6 +10,7 @@ import {
   Raleway_700Bold
 } from '@expo-google-fonts/raleway'
 import { Register } from './src/screens/Register';
+import { Dashboard } from './src/screens/Dashboard';
 
 
 const Stack = createNativeStackNavigator();
@@ -36,6 +37,11 @@ function App() {
           options={{ headerShown: false }}
           name="register"
           component={Register}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="dashboard"
+          component={Dashboard}
         />
       </Stack.Navigator>
     </NavigationContainer>
