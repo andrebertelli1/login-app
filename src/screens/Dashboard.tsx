@@ -1,9 +1,16 @@
 import { Feather } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+
+interface Params {
+  userInfo: {};
+}
 
 export function Dashboard() {
   const { navigate } = useNavigation();
+
+  const route = useRoute();
+  const { userInfo } = route.params as Params;
 
   return (
     <SafeAreaView>
@@ -22,6 +29,16 @@ export function Dashboard() {
             color="#312E49"
           />
         </TouchableOpacity>
+      </View>
+      <View className="items-center mt-28">
+        <Image
+          className="w-40 h-40 rounded-full"
+          source={{
+            uri: `${userInfo.picture}`,
+          }}
+        />
+        <Text className="font-bold text-xl py-3">{userInfo.name}</Text>
+        <Text className="font-semibold text-base">{userInfo.email}</Text>
       </View>
     </SafeAreaView>
   )

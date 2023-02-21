@@ -11,7 +11,11 @@ export function FormLogin() {
           size={20}
           color="#667085"
         />
-        <TextInput placeholder="Your Email" placeholderTextColor="#747980" className="h-10 px-2" />
+        <TextInput
+          placeholder="Your Email"
+          placeholderTextColor="#747980"
+          className="h-10 px-2"
+        />
       </View>
       <Text className="font-semibold mt-5">Password</Text>
       <View className="h-11 font-regular mt-1.5 border-[#A2A2A6] rounded-md border flex flex-row items-center px-4">
@@ -26,6 +30,6 @@ export function FormLogin() {
         </TouchableOpacity>
       </View>
     </View>
-    
+
   )
 }

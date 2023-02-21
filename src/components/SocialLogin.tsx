@@ -19,7 +19,7 @@ type AuthResponse = {
 export function SocialLogin() {
   const { navigate } = useNavigation();
 
-  const [userDate, setUserData] = useState();
+  const [userData, setUserData] = useState();
 
   async function handleGoogleSignIn() {
     try {
@@ -36,7 +36,7 @@ export function SocialLogin() {
         const response = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?auth=json&access_token=${params.access_token}`)
         const user = await response.json();
 
-        navigate('dashboard')
+        navigate('dashboard', { userInfo: user })
       }
     } catch (error) {
       console.log(error)
@@ -47,6 +47,7 @@ export function SocialLogin() {
     <View className="flex-row justify-around mt-5">
       <TouchableOpacity
         className="border p-4 border-[#CDCED1] rounded-md"
+        disabled={true}
       >
         <Facebook />
       </TouchableOpacity>
@@ -58,6 +59,7 @@ export function SocialLogin() {
       </TouchableOpacity>
       <TouchableOpacity
         className="border p-4 border-[#CDCED1] rounded-md"
+        disabled={true}
       >
         <Linkedin />
       </TouchableOpacity>
